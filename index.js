@@ -136,79 +136,235 @@ do {
     document.write(i);
 }
 while (i<5);
-*/
 
-// Funciones
+// declaracion
+
+function promedio(){
+    //sentencias
+    console.log("hola funciones");
+}
+
+//retorna
+function promedio2(nota1, nota2){
+    let promedio = (nota1 + nota2)/2;
+    console.log(promedio);
+    document.write(promedio);
+
+    return promedio;
+}
+
+//resumida
+function promedio2b(nota1, nota2){
+    return (nota1 + nota2)/2;
+}
 
 let notaUno = parseInt(prompt("Ingrese nota 1: "));
 let notaDos = parseInt(prompt("Ingrese nota 2: "));
-/*
-//declaración
-function promedio(nota1, nota2){
-    let promedio = (nota1 + nota2)/2;
-    console.log(promedio);
 
-    return promedio;
+// llamado
+promedio();
+let notaFinal = promedio2(notaUno, notaDos);
+console.log(notaFinal);
+
+console.log(promedio2b(10, 5));
+console.log(promedio2b(notaUno, 5));
+
+//funciones anonimas
+
+let prome = function(nota1){
+    return nota1 + 10;
 }
 
-function promedio2(){
-    let notaUno = parseInt(prompt("Ingrese nota 1: "));
-    let notaDos = parseInt(prompt("Ingrese nota 2: "));
+prome(5);
+
+//arrow function
+
+let flecha = nota1 => nota1 +10;
+
+let promedioAf = (notaUno, notaDos) => (notaUno + notaDos)/2;
+
+notaUno, notaDos => (notaUno + notaDos)/2;
+
+//declarada
+function factorial (n){
+    let total=1;
+    for(let i=1; i<=n; i++){
+        total*=i;
+    }
+
+    return total;
+}
+
+let resultado= factorial(notaUno);
+console.log("factorial: ", resultado);
+
+let nombre = ["Laura", 45, true, "queso"];
+nombre.forEach(obj =>{
+    console.log(obj);
+})
+
+let objetoCasa = {
+    ancho: 65,
+    altura: 5,
+    tipoDeTecho: ["madera", "chapa", "cemento"],
+    tipoDePiso:["madera", "tierra", "cemento", "ceramica"],
+    habitaciones: 5,
+    antiguedad: 10,
+    alarma: true,
+    precio: function (){
+        return this.ancho * this.altura;
+    } ,
+    seguridad(){return this.alarma ? "llamar a la policia" : "alarma funionando"}
+}
+
+console.log(objetoCasa.seguridad());
+
+console.log(objetoCasa.tipoDePiso[3]);
+
+objetoCasa.habitaciones = 3;
+console.log(objetoCasa.habitaciones);
+
+let letra = "hola";
+let palabra = new String("hola");
+
+class Animal {
+    constructor(nombre, edad, peso, altura){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peso = peso;
+        this.altura = altura;
+    }
+
+    //metodos
     
-    let promedio = (notaUno + notaDos)/2;
-    console.log(promedio);
-
-    return promedio;
-
 }
 
-//llamado
+let perro = new Animal("Odie", 5, "5kg", "60cm");
+console.log({perro});
+document.write(perro.nombre);
 
-console.log(promedio(4, 9));
-console.log(promedio(notaUno, 8));
+let gato = new Animal("Garfield", 10, "8kg", "30cm");
+console.log({gato});
+document.write(gato.nombre);
 
-let promedioFinal = promedio(notaUno, notaDos);
+let otro = new Animal("Otro mas");
+console.log({otro});
 
-console.log(promedioFinal);
 
-//console.log(promedio2());
+let nombre = "       Laura Andrea Lorena Del Campo";
 
-//if (promedio(notaUno, notaDos)>7){}
+console.log(nombre.length); 
 
-//Resumida
+console.log(nombre.charAt(12));
 
-function promedioR(nota1, nota2){
-    return (nota1 + nota2)/2 ;
+console.log(nombre[12]);
+
+nombre.indexOf("o"); //devuelve posicion
+nombre.indexOf("a", 5); //devuelve el primer a despues posicion 5
+
+console.log(nombre.toUpperCase());
+console.log(nombre.trim());
+
+
+document.write(`<h1> Hola ${nombre.toUpperCase()}</h1>`);
+
+
+let numeros = [1, 5, 52, -3, 12, 9, 2.3];
+
+console.log(Math.max(5, 10)); 
+
+console.log(Math.min(1, 5, 52, -3, 12)); 
+
+console.log(Math.pow(numeros[1], 10)); 
+
+let random = Math.random();
+console.log(Math.round(random *= 1000));
+
+console.log(Math.round(Math.sqrt(numeros[4])));
+
+console.log(Math.sqrt(numeros[4]));
+
+console.log(Math.trunc(numeros[6]));
+
+// array
+
+
+let nombre, apellido="perez";
+
+const frutas = ["pera", "banana", "manzana"];
+const verduras = ["papa", "tomate", "lechuga", "zanahoria"];
+
+const legumbres = new Array("a", 56, 89, true);
+
+for(i=0; i<verduras.length; i++){
+    console.log(verduras[i].toUpperCase());
+    document.write(`${verduras[i].toUpperCase()} <br>`);
 }
 
-console.log(promedioR(notaUno, notaDos));
+verduras.forEach(verdu => {
+    document.write(`${verdu.toUpperCase()} <br>`);
+});
+
+verduras.push("zapallo", "repollo");
+verduras.pop();
+
+verduras.unshift("zapallo", "repollo");
+verduras.shift();
+
+console.log({verduras});
+
+const ventasVerduras = verduras.concat(frutas);
+console.log({ventasVerduras});
+
+let pos = ventasVerduras.indexOf("zanahoria");
+console.log(pos);
+
+let pos2 = ventasVerduras.lastIndexOf("zanahoria");
+console.log(pos2);
 
 
+let cortoVerdura = ventasVerduras.slice(2, 5);
+console.log(cortoVerdura);
 
-let promedioR = function (nota1, nota2){
-    return (nota1 + nota2)/2 ;
-}
+ventasVerduras.splice(2, 0, "naranja");
+console.log({ventasVerduras});
 
-console.log(promedioR(notaUno, notaDos));
+ventasVerduras.map( fruta => document.write(`<h2>la fruta elegida es: ${fruta}</h2>`));
 */
 
-// arrow function
 
-let promedioR = nota1 => nota1*2;
+const nodoPrincipal = document.getElementById("nodo");
 
-let promedioR2 = (notaUno, notaDos) => (notaUno + notaDos)/2;
+const nodoPClass = document.getElementsByClassName("nodoPClass");
 
-//simplificado
+const nodoTag = document.getElementsByTagName("div");
 
-function (nota1, nota2){
-    return (nota1 + nota2)/2 ;
-}
+const nodoName = document.getElementsByName("mundo");
 
-(nota1, nota2) => {return nota1 + nota2}
+const nodoComodin = document.querySelector("#nodo");
 
-(nota1, nota2) => nota1 + nota2
+const nodoComodin2 = document.querySelectorAll(".nodoClass");
 
-nota1, nota2 => nota1 + nota2
+const verduras = ["papa", "tomate", "lechuga", "zanahoria"];
 
+const ul = document.getElementByTagName("ul");
 
+verduras.forEach(verdu => {
+    
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    p.textContent= verdu;
 
+    li.appendChild(p);
+    ul.appendChild(li);
+    
+
+})
+
+<ul>
+    <li>
+        <p>
+            sfmskfg
+        </p>
+    </li>
+</ul>
